@@ -7,7 +7,7 @@ function App() {
   const [gifs, setGifts] = useState([])
 
   useEffect(function () {
-    getGifs().then(gifs => setGifts(gifs))
+    getGifs({Keyword: 'rick' }).then(gifs => setGifts(gifs))
   }, [])
   
   return (
