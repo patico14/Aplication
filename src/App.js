@@ -1,23 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import './App.css';
-import getGifs from './service/getGifs';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import getGifs from "./service/getGifs";
 
+import ListOfGifs from "./components/ListOfGifs";
 
 function App() {
-  const [gifs, setGifts] = useState([])
+  const [gifs, setGifts] = useState([]);
 
   useEffect(function () {
-    getGifs({Keyword: 'rick' }).then(gifs => setGifts(gifs))
-  }, [])
-  
+    getGifs({ Keyword: "cat " }).then((gifs) => setGifts(gifs));
+  }, []);
+
   return (
     <div className="App">
       <section className="App-header">
-        {
-          gifs.map(singleGifs => <img src={singleGifs}/>) 
-        }
-
-       
+      <ListOfGifs gifs={gifs}/>
       </section>
     </div>
   );
